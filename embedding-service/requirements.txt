@@ -1,0 +1,5 @@
+Flask==3.0.0
+flask-cors==4.0.0
+FlagEmbedding==1.2.10
+chromadb==0.4.22
+torch==2.1.0

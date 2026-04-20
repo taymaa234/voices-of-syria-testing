@@ -1,0 +1,16 @@
+# GitLeaks Configuration
+# Scans for secrets and credentials in the codebase
+
+title = "VoicesOfSyria GitLeaks Config"
+
+[extend]
+useDefault = true  # Use default GitLeaks rules
+
+# Ignore test files and example env files
+[allowlist]
+description = "Allowlist for test/example files"
+paths = [
+    ".env.example",
+    "Backend/src/test/.*",
+    ".*test.*\\.properties",
+]

@@ -1,0 +1,786 @@
+﻿/* Container: بطاقة عائمة أنيقة */
+.container {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,0.03);
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.title h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.stats {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+/* Table Styling */
+.tableWrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: separate; /* مهم جداً للفراغات */
+    border-spacing: 0 8px; /* مسافة بين الصفوف */
+}
+
+.table th {
+    text-align: left;
+    padding: 15px 20px;
+    color: #a0aec0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Rows: الصفوف */
+.table tbody tr {
+    background: #ffffff;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.table tbody tr:hover {
+    transform: scale(1.005) translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    z-index: 10;
+    position: relative;
+}
+
+.table td {
+    padding: 20px;
+    vertical-align: middle;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.table td:first-child {
+    border-left: 1px solid #edf2f7;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.table td:last-child {
+    border-right: 1px solid #edf2f7;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Typography in Cells */
+.storyTitle {
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+.storyDate {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+/* Type Badge */
+.typeBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+/* ألوان الأنواع */
+.typeText { background: #f0fdf4; color: #16a34a; }
+.typeAudio { background: #f0fff4; color: #38a169; }
+.typeVideo { background: #fff5f5; color: #e53e3e; }
+
+/* Status Badge */
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.statusApproved { background: rgba(72, 187, 120, 0.1); color: #48bb78; }
+.statusPending { background: rgba(237, 137, 54, 0.1); color: #ed8936; }
+.statusRejected { background: rgba(245, 101, 101, 0.1); color: #f56565; }
+
+/* ---------------------------------- */
+/* 🎨 THE PRO BUTTONS (الجزء الأهم) */
+/* ---------------------------------- */
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actionBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
+}
+
+/* Edit Button: Blue Soft */
+.btnEdit {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+.btnEdit:hover {
+    background: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+/* Delete Button: Red Soft */
+.btnDelete {
+    background: #fff5f5;
+    color: #e53e3e;
+}
+.btnDelete:hover {
+    background: #e53e3e;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+/* View Button: Gray Soft */
+.btnView {
+    background: #f7fafc;
+    color: #718096;
+}
+.btnView:hover {
+    background: #4a5568;
+    color: #ffffff;
+}
+
+/* Admin Message Styles */
+.adminMessageCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 300px;
+}
+
+.messageIcon {
+  color: #f59e0b;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.messageText {
+  font-size: 0.875rem;
+  color: #374151;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.noMessage {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Highlight row with admin message */
+tr:has(.adminMessageCell) {
+  background-color: #fffbeb;
+}
+
+tr:has(.adminMessageCell):hover {
+  background-color: #fef3c7;
+}
+
+
+/* ================================== */
+/* 🎨 EDIT MODAL STYLES */
+/* ================================== */
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 30px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.modalHeader h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modalHeader h3 svg {
+    color: #16a34a;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #a0aec0;
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.closeBtn:hover {
+    color: #e53e3e;
+}
+
+.adminMessageBox {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #f59e0b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px 30px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.adminMessageBox svg {
+    color: #d97706;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.adminMessageBox strong {
+    display: block;
+    color: #92400e;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+.adminMessageBox p {
+    margin: 0;
+    color: #78350f;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.modalBody {
+    padding: 24px 30px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #2d3748;
+    transition: all 0.2s ease;
+    background: #f7fafc;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #16a34a;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.1);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 30px;
+    border-top: 1px solid #edf2f7;
+    background: #f7fafc;
+    border-radius: 0 0 20px 20px;
+}
+
+.cancelBtn,
+.saveBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.cancelBtn {
+    background: #edf2f7;
+    color: #4a5568;
+}
+
+.cancelBtn:hover {
+    background: #e2e8f0;
+}
+
+.saveBtn {
+    background: linear-gradient(135deg, #16a34a 0%, #166534 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.saveBtn:hover {
+    background: linear-gradient(135deg, #166534 0%, #14532d 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+}
+
+.saveBtn:disabled,
+.cancelBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .modal {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+    
+    .modalHeader,
+    .modalBody,
+    .modalFooter {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/* Status for NEEDS_MODIFICATION */
+.statusNeedsModification {
+    background: rgba(237, 137, 54, 0.15);
+    color: #c05621;
+    border: 1px solid rgba(237, 137, 54, 0.3);
+}
+
+/* ============================================
+   DELETE CONFIRMATION MODAL
+   ============================================ */
+.deleteModal {
+    background: #ffffff;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease-out;
+}
+
+.deleteModalIcon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.deleteModalIcon svg {
+    font-size: 2rem;
+    color: #c53030;
+}
+
+.deleteModalTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0 0 12px;
+}
+
+.deleteModalText {
+    font-size: 1rem;
+    color: #4a5568;
+    margin: 0 0 8px;
+    line-height: 1.5;
+}
+
+.deleteModalText strong {
+    color: #2d3748;
+}
+
+.deleteModalWarning {
+    font-size: 0.85rem;
+    color: #e53e3e;
+    margin: 0 0 24px;
+}
+
+.deleteModalActions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.deleteBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.deleteBtn:hover {
+    background: linear-gradient(135deg, #c53030 0%, #9b2c2c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+}
+
+.deleteBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Dark Theme for Delete Modal */
+:global([data-theme="dark"]) .deleteModal {
+    background: #1a1f2e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+:global([data-theme="dark"]) .deleteModalIcon {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.1) 100%);
+}
+
+:global([data-theme="dark"]) .deleteModalIcon svg {
+    color: #ef4444;
+}
+
+:global([data-theme="dark"]) .deleteModalTitle {
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .deleteModalText {
+    color: #a0aec0;
+}
+
+:global([data-theme="dark"]) .deleteModalText strong {
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .deleteModalWarning {
+    color: #fca5a5;
+}
+
+
+/* ============================================
+   LIGHT THEME OVERRIDES
+   ============================================ */
+/* MyStories is already light-themed by default, 
+   but we need dark theme overrides for consistency */
+
+:global([data-theme="dark"]) .container {
+    background: rgba(26, 31, 46, 0.9);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .title h2 {
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .stats {
+    color: #a0aec0;
+}
+
+:global([data-theme="dark"]) .table th {
+    color: #718096;
+}
+
+:global([data-theme="dark"]) .table tbody tr {
+    background: rgba(26, 31, 46, 0.6);
+}
+
+:global([data-theme="dark"]) .table tbody tr:hover {
+    background: rgba(34, 197, 94, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .table td {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+:global([data-theme="dark"]) .storyTitle {
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .storyDate {
+    color: #718096;
+}
+
+:global([data-theme="dark"]) .typeText {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+:global([data-theme="dark"]) .typeAudio {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+:global([data-theme="dark"]) .typeVideo {
+    background: rgba(21, 128, 61, 0.15);
+    color: #15803d;
+}
+
+:global([data-theme="dark"]) .statusApproved {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+}
+
+:global([data-theme="dark"]) .statusPending {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+:global([data-theme="dark"]) .statusRejected {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+:global([data-theme="dark"]) .statusNeedsModification {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+}
+
+:global([data-theme="dark"]) .btnEdit {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+:global([data-theme="dark"]) .btnEdit:hover {
+    background: #22c55e;
+    color: #0f1419;
+}
+
+:global([data-theme="dark"]) .btnDelete {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+:global([data-theme="dark"]) .btnDelete:hover {
+    background: #ef4444;
+    color: #ffffff;
+}
+
+:global([data-theme="dark"]) .btnView {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a0aec0;
+}
+
+:global([data-theme="dark"]) .btnView:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .messageText {
+    color: #a0aec0;
+}
+
+:global([data-theme="dark"]) .noMessage {
+    color: #4a5568;
+}
+
+:global([data-theme="dark"]) tr:has(.adminMessageCell) {
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+:global([data-theme="dark"]) tr:has(.adminMessageCell):hover {
+    background-color: rgba(245, 158, 11, 0.15);
+}
+
+/* Modal Dark Theme */
+:global([data-theme="dark"]) .modalOverlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+:global([data-theme="dark"]) .modal {
+    background: rgba(26, 31, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+:global([data-theme="dark"]) .modalHeader {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+:global([data-theme="dark"]) .modalHeader h3 {
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .modalHeader h3 svg {
+    color: #22c55e;
+}
+
+:global([data-theme="dark"]) .closeBtn {
+    color: #718096;
+}
+
+:global([data-theme="dark"]) .closeBtn:hover {
+    color: #ef4444;
+}
+
+:global([data-theme="dark"]) .adminMessageBox {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+:global([data-theme="dark"]) .adminMessageBox strong {
+    color: #f59e0b;
+}
+
+:global([data-theme="dark"]) .adminMessageBox p {
+    color: #fbbf24;
+}
+
+:global([data-theme="dark"]) .formGroup label {
+    color: #a0aec0;
+}
+
+:global([data-theme="dark"]) .formGroup input,
+:global([data-theme="dark"]) .formGroup textarea,
+:global([data-theme="dark"]) .formGroup select {
+    background: rgba(15, 20, 25, 0.6);
+    border-color: rgba(255, 255, 255, 0.08);
+    color: #f7fafc;
+}
+
+:global([data-theme="dark"]) .formGroup input:focus,
+:global([data-theme="dark"]) .formGroup textarea:focus,
+:global([data-theme="dark"]) .formGroup select:focus {
+    border-color: #22c55e;
+    background: rgba(15, 20, 25, 0.8);
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+:global([data-theme="dark"]) .modalFooter {
+    background: rgba(15, 20, 25, 0.6);
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+:global([data-theme="dark"]) .cancelBtn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #a0aec0;
+}
+
+:global([data-theme="dark"]) .cancelBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+:global([data-theme="dark"]) .saveBtn {
+    background: linear-gradient(135deg, #22c55e 0%, #4d7c0f 100%);
+}

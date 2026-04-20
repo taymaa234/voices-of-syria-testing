@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <!-- Green stripe -->
+  <rect width="900" height="200" fill="#007A3D"/>
+  <!-- White stripe -->
+  <rect y="200" width="900" height="200" fill="#FFFFFF"/>
+  <!-- Black stripe -->
+  <rect y="400" width="900" height="200" fill="#000000"/>
+  <!-- Three red stars -->
+  <g fill="#CE1126">
+    <!-- First star -->
+    <polygon points="225,300 235,330 265,330 243,348 253,378 225,360 197,378 207,348 185,330 215,330" />
+    <!-- Second star -->
+    <polygon points="450,300 460,330 490,330 468,348 478,378 450,360 422,378 432,348 410,330 440,330" />
+    <!-- Third star -->
+    <polygon points="675,300 685,330 715,330 693,348 703,378 675,360 647,378 657,348 635,330 665,330" />
+  </g>
+</svg>

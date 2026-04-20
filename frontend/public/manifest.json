@@ -1,0 +1,25 @@
+{
+  "short_name": "Voices of Syria",
+  "name": "Voices of Syria - Syrian Stories Platform",
+  "icons": [
+    {
+      "src": "syria-flag.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "syria-flag.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192"
+    },
+    {
+      "src": "syria-flag.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#007A3D",
+  "background_color": "#ffffff"
+}

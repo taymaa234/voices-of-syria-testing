@@ -1,0 +1,22 @@
+# Maven
+/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDEs
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+
+# Database (H2)
+*.db
+*.trace.db
+*.mv.db

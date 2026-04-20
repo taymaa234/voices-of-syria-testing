@@ -1,0 +1,78 @@
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.local
+.env.*.local
+
+# ========================
+# Java / Spring Boot
+# ========================
+Backend/target/
+Backend/.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+
+# ========================
+# Frontend
+# ========================
+frontend/node_modules/
+frontend/build/
+frontend/coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================
+# Python
+# ========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+venv_new/
+*.egg-info/
+dist/
+.Python
+
+# ========================
+# AI Models & Vector DB
+# ========================
+embedding-service/chroma_data/
+transcription-service/models/
+transcription-service/ffmpeg/ffmpeg.exe
+# ========================
+# Uploads & Temp Files
+# ========================
+transcription-service/temp_uploads/
+uploads/
+temp_uploads/
+data/
+
+# ========================
+# Binary / Large Files
+# ========================
+*.exe
+*.dll
+*.mp4
+*.mp3
+*.wav
+*.m4a
+*.webm
+transcription-service/ffmpeg/
+
+# ========================
+# IDE & OS
+# ========================
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ========================
+# Logs
+# ========================
+*.log

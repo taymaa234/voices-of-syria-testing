@@ -1,0 +1,60 @@
+/* src/components/Branding.module.css */
+
+.brandingContainer {
+    max-width: 500px;
+    padding: 40px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    direction: rtl;
+    text-align: right;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 4rem;
+    margin-bottom: 16px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    /* Vibrant Gradient for Dark Background */
+    background: linear-gradient(to bottom right, #ffffff 0%, #6dd5ed 50%, #2193b0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 20px rgba(109, 213, 237, 0.4));
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 90%;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 968px) {
+    .brandingContainer {
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 2.5rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        text-align: center;
+        max-width: 100%;
+    }
+}

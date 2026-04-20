@@ -1,0 +1,56 @@
+/* src/components/ThemeToggle.module.css */
+
+.toggleButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  
+  /* Dark theme default */
+  background: var(--toggle-bg, rgba(255, 255, 255, 0.1));
+  color: var(--toggle-color, #f7fafc);
+  border: 1px solid var(--toggle-border, rgba(255, 255, 255, 0.1));
+}
+
+.toggleButton:hover {
+  background: var(--toggle-hover-bg, rgba(255, 255, 255, 0.15));
+  transform: translateY(-2px);
+  box-shadow: var(--toggle-shadow, 0 4px 15px rgba(0, 0, 0, 0.2));
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1.2rem;
+  color: var(--toggle-icon-color, #fbbf24);
+}
+
+.label {
+  font-size: 0.85rem;
+}
+
+/* Light theme overrides */
+:global([data-theme="light"]) .toggleButton {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a202c;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global([data-theme="light"]) .toggleButton:hover {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+:global([data-theme="light"]) .icon {
+  color: #4a5568;
+}
